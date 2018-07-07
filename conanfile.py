@@ -37,7 +37,7 @@ class FollyConan(ConanFile):
         "gflags/2.2.1@bincrafters/stable",
         "glog/0.3.5@bincrafters/stable",
         "libevent/2.0.22@bincrafters/stable",
-        "lz4/1.8.0@bincrafters/stable",
+        "lz4/1.8.2@bincrafters/stable",
         "OpenSSL/1.0.2n@conan/stable",
         "zlib/1.2.11@conan/stable",
         "zstd/1.3.4@bincrafters/stable",
