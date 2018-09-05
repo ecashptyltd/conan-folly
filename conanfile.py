@@ -7,8 +7,7 @@ import os
 
 class FollyConan(ConanFile):
     name = "folly"
-    version = "0.58.0"
-    release = "2018.06.25.00" # check contained cmakelists for version number
+    version = "2018.09.03.01"
     description = "An open-source C++ library developed and used at Facebook"
     url = "https://github.com/bincrafters/conan-folly"
     homepage = "https://github.com/facebook/folly"
@@ -45,8 +44,8 @@ class FollyConan(ConanFile):
 
     def source(self):
         source_url = "https://github.com/facebook/folly"
-        tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.release))
-        extracted_dir = self.name + "-" + self.release
+        tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.version))
+        extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self.source_subfolder)
 
         # Fix inconsistent case for gflags so that the package config can be
