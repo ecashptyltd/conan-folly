@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from conans import ConanFile, CMake
+from conans import ConanFile, CMake, tools
 import os
 
 
@@ -15,5 +15,8 @@ class TestPackageConan(ConanFile):
         cmake.build()
 
     def test(self):
-        bin_path = os.path.join("bin", "test_package")
-        self.run(command=bin_path, run_environment=True)
+        if tools.cross_building(self.settings):
+            self.output.warn("Skipping run of cross-built package")
+        else:
+            bin_path = os.path.join("bin", "test_package")
+            self.run(command=bin_path, run_environment=True)
