@@ -4,7 +4,7 @@ env:
      - CONAN_TOTAL_PAGES: 2
      - TRAVIS_BRANCH: "stable/2018.11.12.00" # fake this so get_ci_vars() does not error out
      - CONAN_USERNAME: "bincrafters"
-     - CONAN_UPLOAD: "https://api.bintray.com/conan/ecashptyltd/public-conan"
+     - CONAN_UPLOAD: "https://ecashptyltd.jfrog.io/artifactory/api/conan/etsv"
 
 linux: &linux
    os: linux
