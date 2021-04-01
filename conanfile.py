@@ -76,6 +76,13 @@ class FollyConan(ConanFile):
 
     def _configure_cmake(self):
         cmake = CMake(self)
+        if tools.cross_building(self) and self.settings.os == "Linux":
+            # If we're cross-building for a Linux target assume these are true,
+            # as we can't run the required test programs.
+            cmake.definitions["FOLLY_HAVE_UNALIGNED_ACCESS"] = "1"
+            cmake.definitions["FOLLY_HAVE_LINUX_VDSO"] = "1"
+            cmake.definitions["FOLLY_HAVE_WCHAR_SUPPORT"] = "1"
+            cmake.definitions["HAVE_VSNPRINTF_ERRORS"] = "1"
         cmake.configure()
         return cmake
 
